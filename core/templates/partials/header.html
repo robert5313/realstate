@@ -1,0 +1,20 @@
+{% load static %}
+<header>
+    <div class="logo-container">
+        <img src="{% static 'images/logo.svg' %}" alt="logo" />
+        <h4 class="logo">
+            <a href="/">
+                House Haven
+            </a></h4>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a class="nav-link" href="/studios">Studios</a></li>
+            <li><a class="nav-link" href="/bedsitters">Bedsitters</a></li>
+            <li><a class="nav-link" href="/apartments">Apartment</a></li>
+        </ul>
+    </nav>
+    <div id="login">
+        <a id="btn" href="accounts/login">Login</a>
+    </div>
+</header>

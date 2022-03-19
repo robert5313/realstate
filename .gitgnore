@@ -1,0 +1,24 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+.Python
+build/
+dist/
+
+*.manifest
+*.spec
+
+
+### Django ###
+__pycache__
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+env
+env/
+.env
+db.sqlite3

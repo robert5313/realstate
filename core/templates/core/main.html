@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block page_content %} {% load static %} {% include 'partials/header.html' %}
+<main>
+    <section class="presentation">
+        <div class="introduction">
+            <div class="intro-text">
+                <h1>House Hacienda</h1>
+                <p>
+                    Great prices, fantastic ammenities, simply the best.
+                </p>
+            </div>
+            <div class="cta">
+                <button class="cta-select">Contact Us</button>
+                <button class="cta-add">Blog</button>
+            </div>
+        </div>
+        <div class="cover">
+            <img src="{% static 'images/house.jpg' %}" alt="House Haven" />
+        </div>
+    </section>
+
+
+    <img class="big-circle" src="{% static 'images/big-eclipse.svg' %}" alt="" />
+    <img class="medium-circle" src="{% static 'images/mid-eclipse.svg' %}" alt="" />
+    <img class="small-circle" src="{% static 'images/small-eclipse.svg' %}" alt="" />
+</main>
+{% endblock %}
