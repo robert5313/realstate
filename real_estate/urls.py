@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, re_path, path
 from core import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
-urlpatterns = [ 
+urlpatterns = [
     path(r'admin/', admin.site.urls),
     path('', include(('core.urls','core'), namespace='core')),
     path('management/', include('management.urls')),
@@ -31,3 +33,7 @@ urlpatterns = [
     path('accounts/password-change/', views.password_change_form, name='password_change_form')
 
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

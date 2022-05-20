@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block page_content %} {% include 'partials/header.html' %} {% load static %}
+<section class="homes" id="homes">
+
+    <h1 class="heading">Apartment: {{house_number}}</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src={{ apartment.apartment_main_img.url }} alt={{ apartment.house_number}}>
+            </div>
+            <div class="content ">
+                <h3>{{ apartment.house_number}}</h3>
+                <p>Area: {{apartment.property.address}}</p>
+                <div class="price">KES: {{ apartment.rent_price }}</div>
+                <p>Features: {{apartment.features}}</p>
+                <p>Floor Number: {{apartment.floor_number}}</p>
+                <p>Occupation Status: {{apartment.rent_payment_status}}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src={{ apartment.apartment_img_2.url }} alt={{ apartment.house_number}}>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src={{ apartment.apartment_alt_img.url }} alt={{ apartment.house_number}}>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <form action="/view/apartment/{{apartment.house_number}}/" method="POST" class="request-form">
+            {% csrf_token %}
+            <div class="my-4"><label class="form-label sr-only" for="first_name">First Name</label> {{ form.first_name }}</div>
+            <div class="my-4"><label class="form-label sr-only" for="last_name">Last Name</label> {{ form.last_name }}</div>
+            <div>
+                <label class="form-label sr-only" for="phone">Phone</label> {{ form.phone_number }}
+            </div>
+            <div class="my-4"><label class="form-label sr-only" for="email">Email</label> {{ form.email }}</div>
+            <div class="my-4">
+                <label class="form-label sr-only" for="message">Request</label> {{ form.request }}
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="inline-flex items-center justify-center px-5 py-3 text-white bg-black rounded-lg sm:w-auto submit-request-button">Save</button>
+            </div>
+        </form>
+    </div>
+
+</section>
+{% include 'partials/footer.html' %} {% endblock %}

@@ -1,19 +1,16 @@
-{% extends "base.html" %} {% block page_content %}
-<!-- {% if form.errors %} -->
-<!-- <p>Your username and password didn't match. Please try again.</p>
-{% endif %} {% if next %} {% if user.is_authenticated %}
-<p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
-{% else %}
-<p>Please login to see this page.</p>
-{% endif %} {% endif %} -->
-
-
-{% include 'partials/header.html' %}
+{% extends "base.html" %} {% block page_content %} {% include 'partials/header.html' %}
 <section class="myform-area">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="form-area login-form">
+                    {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                    {% endif %} {% if next %} {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+                    {% else %}
+                    <p>Please login to see this page.</p>
+                    {% endif %} {% endif %}
                     <div class="form-content">
                         <h1>House Haven</h1>
                         <p id="desc">Affordable, modern houses for everyone, from bedistters, one or more bedroom houses with exquisite ammenities</p>

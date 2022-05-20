@@ -10,7 +10,8 @@ urlpatterns = [
     path('logout', views.logout_view, name="logout"),
     path('studios',  views.studios, name="studios"),
     path('apartments',  views.apartments, name="apartments"),
-    path('bedsitters',  views.bedsitters, name="bedsitters")
+    path('bedsitters',  views.bedsitters, name="bedsitters"),
+    path('view/apartment/<str:house_number>/', views.apartment, name="apartment"),
 
 
-]
+]       

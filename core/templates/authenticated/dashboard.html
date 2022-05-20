@@ -1,4 +1,75 @@
 <!--users/templates/users/dashboard.html-->
 
-{% extends 'base.html' %} {% block page_content %} Hello, {{ user.username|default:'Guest' }}! {% if user.is_authenticated %}
-<a href="{% url 'logout' %}">Logout</a> {%endif%}{% endblock %}
+{% extends 'base.html' %} {% block page_content %}
+<nav id="user_dashboard">
+    <span>Hello, {{ user.username|default:'Guest' }}! {% if user.is_authenticated %}</span>
+    <a href="{% url 'logout' %}">Logout</a>
+</nav>
+
+<section class="homes" id="homes" style="margin-bottom: 2rem">
+
+    <h1 class="heading">Apartment: {{apartment.house_number}}</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src={{ apartment.apartment_main_img.url }} alt={{ apartment.house_number}}>
+            </div>
+            <div class="content ">
+                <h3>{{ apartment.house_number}}</h3>
+                <p>Area: {{apartment.property.address}}</p>
+                <div class="price">KES: {{ apartment.rent_price }}</div>
+                <p>Features: {{apartment.features}}</p>
+                <p>Floor Number: {{apartment.floor_number}}</p>
+                <p>Occupation Status: {{apartment.rent_payment_status}}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src={{ apartment.apartment_img_2.url }} alt={{ apartment.house_number}}>
+            </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src={{ apartment.apartment_alt_img.url }} alt={{ apartment.house_number}}>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <section id="user-info">
+            <div id="info-section">
+                <span>
+                    {{ tenant.occupation }}
+                </span>
+
+                <span>
+                    {{ apartment.house_number }}
+                </span>
+                <div class="card">
+                    Date of entry: {{ tenant.date_of_entry }}
+                </div>
+                <div class="card">
+                    Rent Due: on {{ tenant.date_of_entry }}
+                </div>
+                <div class="card">
+                    Rent Due: on date
+                </div>
+            </div>
+            <div id="notifications ">
+                <span id="title">Profile</span>
+                <ul id="info-card">
+                    <li>{{ user.first_name}}</li>
+                    <li>{{ user.email }}</li>
+            </div>
+    </div>
+    </section>
+    </div>
+
+</section>
+{%endif%}{% endblock %}
